@@ -1,0 +1,14 @@
+:root {
+    --first: rgb(103, 94, 207);
+    --second: rgb(218, 25, 69);
+    --nav-height: 4rem;
+    --flash: #40b3ff;
+    --heading: #222;
+    --text: #444;
+    --main-width: 60rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}

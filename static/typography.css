@@ -1,0 +1,25 @@
+@font-face {
+    font-family: "Open Sans";
+    src: url(fonts/OpenSans-VariableFont_wdth\,wght.ttf);
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url(fonts/OpenSans-Italic-VariableFont_wdth\,wght.ttf);
+    font-style: italic;
+}
+
+html {
+    font-size: 100%;
+    font-family: "Open Sans", sans-serif;
+}
+
+h1,
+h2 {
+    color: var(--heading);
+}
+
+p {
+    color: var(--text);
+}
