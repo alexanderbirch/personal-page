@@ -1,10 +1,15 @@
 :root {
     --first: rgb(103, 94, 207);
     --second: rgb(218, 25, 69);
+    --bg: white;
     --nav-height: 4rem;
-    --flash: #40b3ff;
+    --flash: rgb(64, 179, 255);
+    --flashdark: rgb(54, 153, 219);
+    --flashgreen: rgb(29, 165, 58);
     --heading: #222;
-    --text: #444;
+    --text: rgb(68, 68, 68);
+    --text50: rgba(68, 68, 68, .5);
+    --white50: rgba(255, 255, 255, .5);
     --main-width: 60rem;
 }
 

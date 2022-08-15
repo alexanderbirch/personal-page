@@ -15,11 +15,55 @@ html {
     font-family: "Open Sans", sans-serif;
 }
 
+article {
+    margin-bottom: 5rem;
+}
+
 h1,
-h2 {
+h2,
+h3,
+h4 {
     color: var(--heading);
+}
+
+h1 {
+    margin-bottom: 6rem;
+}
+
+h2 {
+    margin-bottom: 2rem;
+}
+
+h2::after {
+    display: block;
+    content: "";
+    margin-top: .4rem;
+    border-bottom: 1px var(--text) solid;
+}
+
+h3 {
+    margin-bottom: 1rem;
 }
 
 p {
     color: var(--text);
+    margin-bottom: .7rem;
+}
+
+a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+p a {
+    color: var(--first);
+}
+
+a h2 {
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--flash);
 }

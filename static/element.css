@@ -1,0 +1,23 @@
+button {
+    border: .2rem solid var(--flashdark);
+    background-color: var(--flashdark);
+    border-radius: .5rem;
+    padding: .4rem .8rem;
+    font-size: 1rem;
+    color: var(--bg);
+    transition: 200ms ease-in-out;
+    font-weight: 500;
+}
+
+button:hover {
+    border-color: var(--flash);
+    background-color: var(--flash);
+    cursor: pointer;
+}
+
+input {
+    font-size: 1rem;
+    margin-bottom: .7rem;
+    padding: .3rem;
+    max-width: 100%;
+}

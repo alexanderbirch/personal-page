@@ -10,14 +10,18 @@
         {
             routeUrl: "https://linkedin.com/in/alexisbirch",
             name: "LinkedIn",
-            logo: "",
+            logo: "/LI-In-Bug.png",
         },
         {
             routeUrl: "https://github.com/alexanderbirch",
             name: "GitHub",
-            logo: "",
+            logo: "/GitHub-Mark-32px.png",
         },
     ];
+
+    let innerWidth = 0;
+
+    let socials_menu_visible = false;
 </script>
 
 <div class="logo"><a href="/"><img alt="A" src="/a-red.svg" /></a></div>
@@ -35,8 +39,8 @@
 
 <!-- Socials -->
 <ul class="socials">
-    {#each socials as { routeUrl, name }}
-        <li><a href={routeUrl}>{name}</a></li>
+    {#each socials as { routeUrl, name, logo }}
+        <li><a href={routeUrl}><img alt={name} src={logo} /></a></li>
     {/each}
 </ul>
 
@@ -67,6 +71,12 @@
         padding: 1rem 2rem 0.5rem 2rem;
     }
 
+    @media only screen and (max-width: 400px) {
+        .logo img {
+            padding: 1rem 1rem 0.5rem 1rem;
+        }
+    }
+
     ul {
         list-style: none;
     }
@@ -77,16 +87,15 @@
 
     ul a {
         display: block;
-        text-decoration: none;
         text-align: center;
         padding: 1rem;
         font-size: 1rem;
-        color: var(--text);
     }
 
-    ul a:hover {
-        text-decoration: underline;
-        color: var(--flash);
+    ul img {
+        margin-top: 4px;
+        height: 1.5rem;
+        filter: grayscale(0.5);
     }
 
     .active {

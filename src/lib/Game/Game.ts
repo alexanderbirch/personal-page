@@ -45,7 +45,7 @@ export class Game {
     }
 }
 
-const N = 1; // Number of obstacles spawned
+const N = 20; // Number of obstacles spawned
 const interval = 3000; // initial interval (lessens every time)
 
 export class GameController {
@@ -78,7 +78,7 @@ export class GameController {
         /* Removes games that have timed out (removed elsewhere if they finish successfully) */
         const now = new Date().getTime();
 
-        const maxTime = (N + 6) * interval;
+        const maxTime = (N + 6) * interval; // grace period, just in case
 
         // Expensive but fix later
         this.games = this.games.filter((game) => { now > game.data.start + maxTime });
@@ -87,7 +87,6 @@ export class GameController {
     get(id: string) {
         return this.games.find(v => { return v.data.id == id }) || null;
     }
-
 
     static getController() {
         return this.gamectrl;

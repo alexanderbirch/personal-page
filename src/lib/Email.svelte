@@ -1,5 +1,5 @@
-<script>
-    export let email = "undefined";
+<script lang="ts">
+    export let email: string;
 </script>
 
 <span>{email}</span>

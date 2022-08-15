@@ -1,22 +1,23 @@
 import type { RequestHandler } from "@sveltejs/kit";
 import { GameController } from "$lib/Game/Game"
+import { validateName } from "$lib/Validation/validation";
 
 export const POST: RequestHandler = async function ({ request }) {
     /*
     * Start new game
     */
+    try {
+        const name = validateName((await request.formData()).get("name"));
 
-    const name = (await request.formData()).get("name")
+        const game = GameController.getController().newGame(name);
 
-    if (typeof name != "string" || !name.trim())
+        return {
+            body: { ...game.data }
+        };
+    } catch (error) {
         return {
             status: 400,
-            error: new Error(`Invalid game name: ${name}`)
+            error
         }
-
-    const game = GameController.getController().newGame(name.trim());
-
-    return {
-        body: { ...game.data }
-    };
+    }
 }

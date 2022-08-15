@@ -8,8 +8,7 @@
     export let destroyed = 0;
     let visible = false;
 
-    let spinTime = 3000 + Math.random() * 2000;
-    if (time - spinTime < 3000) spinTime = 3000;
+    let spinTime = 1200 * (1 + Math.random() + Math.random());
 
     setTimeout(() => (visible = true), time - spinTime);
 
@@ -62,11 +61,16 @@
         position: absolute;
         left: 38vw;
         top: 46vh;
-        width: 8rem;
+        width: 5rem;
         padding: 1rem;
     }
 
     img {
         width: 100%;
+    }
+    @media only screen and (max-width: 800px) {
+        div {
+            width: 10vw;
+        }
     }
 </style>

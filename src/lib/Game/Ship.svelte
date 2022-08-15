@@ -58,9 +58,21 @@
 <style>
     img {
         transform: rotate(90deg);
-        width: 10vw;
+        width: 10rem;
         position: absolute;
         left: 30vw;
         top: 40vh;
+    }
+
+    @media only screen and (max-width: 800px) {
+        img {
+            width: 20vw;
+        }
+    }
+
+    @media only screen and (max-width: 1200px) {
+        img {
+            left: 20vw;
+        }
     }
 </style>

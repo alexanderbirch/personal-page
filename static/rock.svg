@@ -25,8 +25,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="5.1754899"
-     inkscape:cx="44.15041"
-     inkscape:cy="109.55485"
+     inkscape:cx="19.418452"
+     inkscape:cy="109.74806"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="-8"
@@ -37,6 +37,6 @@
      id="defs2" />
   <path
      id="rect539"
-     style="fill:#827870;stroke:#0d0d0a;stroke-width:6.413;stroke-linejoin:round;stroke-miterlimit:1.5;stroke-dasharray:none;stroke-opacity:0.60377401;paint-order:stroke markers fill;fill-opacity:1"
-     d="m 15.680601,11.050209 v 4.630392 h -4.630392 v 21.555466 h 4.630392 v 4.630391 h 21.555466 v -4.630391 h 4.630391 V 15.680601 h -4.630391 v -4.630392 z" />
+     style="fill:#827870;fill-opacity:1;stroke:#0d0d0a;stroke-width:9.11525;stroke-linejoin:round;stroke-miterlimit:1.5;stroke-dasharray:none;stroke-opacity:0.603774;paint-order:stroke markers fill"
+     d="M 11.139251,4.5577318 V 11.139251 H 4.5577318 v 30.638378 h 6.5815192 v 6.581517 h 30.638378 v -6.581517 h 6.581517 V 11.139251 H 41.777629 V 4.5577318 Z" />
 </svg>
