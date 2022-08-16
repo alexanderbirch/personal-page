@@ -2,7 +2,7 @@
     import { page } from "$app/stores";
 
     const main_pages = [
-        { routeUrl: "/about", name: "About" },
+        { routeUrl: "/cv", name: "CV" },
         { routeUrl: "/portfolio", name: "Portfolio" },
     ];
 

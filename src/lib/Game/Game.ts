@@ -46,7 +46,7 @@ export class Game {
 }
 
 const N = 20; // Number of obstacles spawned
-const interval = 3000; // initial interval (lessens every time)
+const interval = 2000; // initial interval (lessens every time)
 
 export class GameController {
     private games: Game[] = [];

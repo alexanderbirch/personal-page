@@ -17,9 +17,8 @@
 
     <div slot="about">
         <p>
-            SpaceA is a demo game built using <a href="https://kit.svelte.dev/"
-                >SvelteKit</a
-            >.
+            SpaceA is a demo game built using
+            <a href="https://kit.svelte.dev/">SvelteKit</a>.
         </p>
         <p>
             Animations are built in <a href="https://svelte.dev/">Svelte</a> on top

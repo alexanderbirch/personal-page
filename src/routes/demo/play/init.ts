@@ -16,7 +16,7 @@ export const POST: RequestHandler = async function ({ request }) {
         };
     } catch (error) {
         return {
-            status: 400,
+            status: 403,
             error
         }
     }
