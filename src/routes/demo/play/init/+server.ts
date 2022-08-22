@@ -1,3 +1,4 @@
+import { json } from '@sveltejs/kit';
 import type { RequestHandler } from "@sveltejs/kit";
 import { GameController } from "$lib/Game/Game"
 import { validateName } from "$lib/Validation/validation";
@@ -11,13 +12,8 @@ export const POST: RequestHandler = async function ({ request }) {
 
         const game = GameController.getController().newGame(name);
 
-        return {
-            body: { ...game.data }
-        };
+        return json({ ...game.data });
     } catch (error) {
-        return {
-            status: 403,
-            error
-        }
+        return json({ status: 403, error })
     }
 }

@@ -1,3 +1,4 @@
+import { json } from '@sveltejs/kit';
 import type { RequestHandler } from "@sveltejs/kit";
 import { GameController } from "$lib/Game/Game"
 
@@ -11,13 +12,8 @@ export const GET: RequestHandler = async function (event) {
     const game = gamectrl.get(id)
 
     if (!game)
-        return {
-            status: 404,
-            error: new Error(`Not found: /demo/status/alive/${id}`)
-        };
+        return json({ status: 404 });
 
 
-    return {
-        body: { status: game.status() }
-    }
+    return json({ status: game.status() })
 }

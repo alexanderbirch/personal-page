@@ -7,7 +7,7 @@
     import { cubicIn } from "svelte/easing";
     import { validateName } from "$lib/Validation/validation";
 
-    let data: GameData;
+    let gameData: GameData;
 
     let gameStatus: GameStatus = GameStatus.Pending;
 
@@ -29,7 +29,7 @@
             });
 
             if (response.status === 200) {
-                data = await response.json();
+                gameData = await response.json();
                 gameStatus = GameStatus.Running;
             } else {
                 validate_error = true;
@@ -53,7 +53,7 @@
 
     const collision = async () => {
         try {
-            const response = await fetch(`/demo/play/status/${data.id}`);
+            const response = await fetch(`/demo/play/status/${gameData.id}`);
             gameStatus = (await response.json()).status;
         } catch (error) {
             console.log(error);
@@ -62,9 +62,11 @@
 
     const destroy = async (id: string) => {
         try {
-            const response = await fetch(`/demo/play/destroy/${data.id}/${id}`);
+            const response = await fetch(
+                `/demo/play/destroy/${gameData.id}/${id}`
+            );
             const json = await response.json();
-            if (json.destroyed) data = json.data;
+            if (json.destroyed) gameData = json.data;
             gameStatus = json.status;
         } catch (error) {
             console.log(error);
@@ -73,7 +75,7 @@
 
     $: x =
         gameStatus == GameStatus.Won && outroended
-            ? goto(`/demo/result/${data.id}`)
+            ? goto(`/demo/result/${gameData.id}`)
             : null;
 
     const overlayCancel = (e: MouseEvent) => {
@@ -142,8 +144,8 @@
 <div class="game-container">
     <Ship bind:introended bind:outroended {gameStatus} />
 
-    {#if data}
-        {#each data.obstacles as obstacle}
+    {#if gameData}
+        {#each gameData.obstacles as obstacle}
             <Obstacle
                 {gameStatus}
                 time={obstacle.time}
@@ -169,7 +171,7 @@
                 on:click={() => {
                     gameStatus = GameStatus.Pending;
                     introstep = 1;
-                    data.obstacles = [];
+                    gameData.obstacles = [];
                 }}>Retry</button
             >
         </div>

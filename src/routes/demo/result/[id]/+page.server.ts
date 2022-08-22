@@ -1,8 +1,8 @@
-import type { RequestHandler } from "@sveltejs/kit";
+import type { PageServerLoad } from './$types';
 import { db, fromGameData } from "$lib/Game/db";
 import { GameController } from "$lib/Game/Game";
 
-export const GET: RequestHandler = async function ({ params }) {
+export const load: PageServerLoad = async function ({ params }) {
     const id = params.id;
 
     let r = db.data?.find(r => { return r.id == id }) || null;
@@ -13,7 +13,7 @@ export const GET: RequestHandler = async function ({ params }) {
         if (!game) {
             return {
                 status: 400,
-                error: new Error(`Not found: /demo/result/${id}`)
+                errors: { notFound: `Not found: /demo/result/${id}` }
             }
         }
 
@@ -22,7 +22,5 @@ export const GET: RequestHandler = async function ({ params }) {
         db.write();
     }
 
-    return {
-        body: { result: { ...r } }
-    }
+    return { result: { ...r } }
 }

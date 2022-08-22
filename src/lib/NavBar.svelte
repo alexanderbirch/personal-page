@@ -2,7 +2,7 @@
     import { page } from "$app/stores";
 
     const main_pages = [
-        { routeUrl: "/cv", name: "CV" },
+        { routeUrl: "/", name: "About" },
         { routeUrl: "/portfolio", name: "Portfolio" },
     ];
 
@@ -30,7 +30,7 @@
 <ul class="main-pages">
     {#each main_pages as { routeUrl, name }}
         <li>
-            <a href={routeUrl} class:active={$page.url.href.includes(routeUrl)}
+            <a href={routeUrl} class:active={$page.url.pathname === routeUrl}
                 >{name}</a
             >
         </li>

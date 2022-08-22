@@ -1,3 +1,4 @@
+import { json } from '@sveltejs/kit';
 import type { RequestHandler } from "@sveltejs/kit";
 import { GameController } from "$lib/Game/Game"
 
@@ -12,14 +13,9 @@ export const GET: RequestHandler = async function (event) {
     const game = gamectrl.get(gid);
 
     if (!game)
-        return {
-            status: 404,
-            error: new Error(`Not found: /demo/play/destroy/${gid}/${oid}`)
-        };
+        return json({ status: 404 });
 
     const destroyed = game.destroy(oid);
 
-    return {
-        body: { destroyed, status: game.status(), data: { ...game.data } }
-    }
+    return json({ destroyed, status: game.status(), data: { ...game.data } })
 }

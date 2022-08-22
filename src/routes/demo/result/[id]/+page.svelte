@@ -1,11 +1,12 @@
 <script lang="ts">
     import Count from "$lib/Effects/Count.svelte";
 
-    import type { GameResult } from "$lib/Game/db";
     import { onMount } from "svelte";
+    import type { PageData } from "./$types";
 
     // populated with data from the endpoint
-    export let result: GameResult;
+    export let data: PageData;
+    let { result } = data;
 
     let thisurl: string;
     onMount(() => {
