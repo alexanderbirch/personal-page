@@ -1,11 +1,11 @@
 import type { PageServerLoad } from './$types';
-import { db, fromGameData } from "$lib/Game/db";
+import { dbLoad, dbSave, type GameResult } from "$lib/Game/db";
 import { GameController } from "$lib/Game/Game";
 
 export const load: PageServerLoad = async function ({ params }) {
     const id = params.id;
 
-    let r = db.data?.find(r => { return r.id == id }) || null;
+    let r = await dbLoad(id);
 
     if (!r) {
         let game = GameController.getController().get(id)
@@ -17,10 +17,8 @@ export const load: PageServerLoad = async function ({ params }) {
             }
         }
 
-        r = fromGameData(game.data);
-        db.data?.push(r);
-        db.write();
+        r = dbSave(game.data);
     }
 
-    return { result: { ...r } }
+    return { ...r };
 }

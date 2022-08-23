@@ -2,22 +2,22 @@
     import Count from "$lib/Effects/Count.svelte";
 
     import { onMount } from "svelte";
+    import { fly } from "svelte/transition";
     import type { PageData } from "./$types";
 
     // populated with data from the endpoint
     export let data: PageData;
-    let { result } = data;
+
+    const date = new Date();
+    date.setTime(data.start);
+    const dateString = date.toISOString().replace(/T(\d+):(\d+).*/, " $1:$2");
+
+    let copied = false;
 
     let thisurl: string;
     onMount(() => {
         thisurl = window.location.href;
     });
-
-    const date = new Date();
-    date.setTime(result.start);
-    const dateString = date.toISOString().replace(/T(\d+):(\d+).*/, " $1:$2");
-
-    let copied = false;
 </script>
 
 <svelte:head><title>Result - SpaceA - Alexander Birch</title></svelte:head>
@@ -27,12 +27,14 @@
 <article>
     <h2>
         <div class="grid">
-            <div>Congratulations, {result.name}!</div>
+            <div>
+                Congratulations, {data.name}!
+            </div>
             <div><nobr>{dateString}</nobr></div>
         </div>
     </h2>
     <div class="grid">
-        <p class="score">Score: <Count to={result.score} /></p>
+        <p class="score">Score: <Count to={data.score} /></p>
         <img src="/a-red.svg" alt="A" />
         <div>
             <h3>Share</h3>

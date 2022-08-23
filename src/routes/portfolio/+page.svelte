@@ -22,11 +22,11 @@
         </p>
         <p>
             Animations are built in <a href="https://svelte.dev/">Svelte</a> on top
-            of basic HTML using dynamic CSS to animate the game.
+            of basic HTML using dynamic CSS for animations.
         </p>
         <p>
-            The backend is built as a SvelteKit server-side application which
-            exposes an API to the frontend.
+            The game is run through a REST API in the SvelteKit server (Vite).
         </p>
+        <p>Game data is stored in Google Firestore.</p>
     </div>
 </Item>

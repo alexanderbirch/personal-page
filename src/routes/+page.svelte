@@ -59,13 +59,14 @@
 </article>
 
 <article>
-    <h2>This site</h2>
+    <h2>Building this site...</h2>
     <p>
-        I have built this site using
-        <a href="https://kit.svelte.dev">SvelteKit</a>.
+        Framework: <a href="https://kit.svelte.dev">SvelteKit</a> (Vite + Svelte
+        plugin).
     </p>
+    <p>Infrastructure: Google Cloud Platform (AppEngine + Firestore).</p>
     <p>
-        The source code is freely available at
+        Public repository on
         <a href="https://github.com/alexanderbirch">GitHub</a>.
     </p>
 </article>
